@@ -10,3 +10,9 @@ D:\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\nunit.framework.dll
 D:\VzMegaHackathon\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.dll
 D:\VzMegaHackathon\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.pdb
 D:\VzMegaHackathon\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\VzMegaHackathon3\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Test.dll
+C:\Users\Administrator\Source\Repos\VzMegaHackathon3\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Test.pdb
+C:\Users\Administrator\Source\Repos\VzMegaHackathon3\Vz.MegaHack.Test\bin\Debug\nunit.framework.dll
+C:\Users\Administrator\Source\Repos\VzMegaHackathon3\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\VzMegaHackathon3\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.dll
+C:\Users\Administrator\Source\Repos\VzMegaHackathon3\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.pdb

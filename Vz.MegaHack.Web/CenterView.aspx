@@ -19,12 +19,38 @@
             //}, function () {
             //    $(".rcorners").removeClass("active");
             //});
-            var centerid = 3
+            var centerid = "001";
 
             $(".rcorners").click(function () {
                 $('p').removeClass('active');
                 $(this).addClass('active');
             });
+
+
+           
+            //Get Leader Board Information
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Services/CCTService.asmx/GetLeaderBoardDetails",
+                data: "{ strCenterID : '" + centerid + "'}",
+                dataType: "json",
+                success: function (Result) {
+                    for (var i = 0; i < Result.d.length; i++) {
+                        $("#ldrboarddiv").append("<div style='clear:both; width: 100%'><div style='float: left; width: 30%'><img src='Content/Images/" + Result.d[i].PhotoFileName + "' class='curvedimage' /></div><div style='float: left; color:white; width: 70%; margin-top: 10px; line-height: 26px'><b>Agent Name: </b>" + Result.d[i].Name + "<br /><b>Score: </b>" + Result.d[i].TotalPoints + " pts<br /><b>Rank: </b>" + Result.d[i].Rank + "</div></div>");
+
+
+
+                        //$("#Table1").append("<tr><td class='left-align font-bold'>" + data.d[i].Make + "</td><td class='left-align font-bold'>" + data.d[i].Model + "</td><td class='left-align font-bold'>" + data.d[i].Year + "</td><td class='right-align font-bold'>" + data.d[i].Doors + "</td><td class='right-align font-bold'>" + data.d[i].Colour + "</td><td class='right-align font-bold'>" + data.d[i].Price + "</td></tr>");
+                    }
+                   
+                },
+                error: function (Result) {
+                    alert("Error");
+                }
+            });
+
+
 
 
             $.ajax({
@@ -539,24 +565,9 @@
         <div style="background-color: #3bbfaf; color: white; margin-top:-25px; width:100%">
             <h2 style="vertical-align: middle">Leader Board</h2>
         </div>
-        <div style="clear:both; width: 100%">
-            <div style="float: left; width: 30%">
-                <img src="Content/Images/Agent1.jpg" class="curvedimage" />
-            </div>
-            <div style="float: left; color:white; width: 70%; margin-top: 10px; line-height: 26px">
-                <b>Agent Name: </b>fasdfa fasdf asdf<br />
-                <b>Score: </b>1000 pts<br />
-                <b>Rank: </b>1
-            </div>
-        </div>
-        <br />
-        <div style="clear:both">
-            <div style="float: left">
-                <img src="Content/Images/Agent2.jpg" class="curvedimage" />
-            </div>
-            <div style="float: left">
-                sdfsfsdfsd
-            </div>
+
+        <div id="ldrboarddiv">
+
         </div>
     </div>
 

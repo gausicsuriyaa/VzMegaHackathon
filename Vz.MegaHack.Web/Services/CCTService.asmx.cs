@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using Vz.MegaHack.Core;
 using Vz.MegaHack.Entities;
+using Vz.MegaHack.Engines;
 
 namespace Vz.MegaHack.Web.Services
 {
@@ -24,6 +25,12 @@ namespace Vz.MegaHack.Web.Services
         {
             CenterViewModel objCenterViewModel = new CenterViewModel();
             return objCenterViewModel.getSupervisors(intCenterID);
+        }
+
+        [WebMethod]
+        public LeaderBoardItem[] GetLeaderBoardDetails(string strCenterID)
+        {
+            return EvaluationEngine.GetLeaderBoard(strCenterID).ToArray();
         }
     }
 }

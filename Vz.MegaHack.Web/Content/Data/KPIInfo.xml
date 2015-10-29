@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<KPIs>
+  <KPI id="001" name="Close Rate"/>
+  <KPI id="002" name="FCR"/>
+  <KPI id="003" name="AHT"/>
+  <KPI id="004" name="SVL"/>
+  <KPI id="005" name="KPI1"/>
+  <KPI id="006" name="KPI2"/>
+  <KPI id="007" name="KPI3"/>
+  <KPI id="008" name="KPI4"/>
+  <KPI id="009" name="KPI5"/>
+  <KPI id="010" name="KPI6"/>
+</KPIs>
