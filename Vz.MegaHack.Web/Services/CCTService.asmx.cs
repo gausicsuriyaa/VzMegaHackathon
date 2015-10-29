@@ -21,10 +21,36 @@ namespace Vz.MegaHack.Web.Services
     {
 
         [WebMethod]
-        public UserDetails GetSupervisorInfo(int intCenterID)
+        public UserDetails GetSupervisorInfo(string strCenterID)
         {
-            CenterViewModel objCenterViewModel = new CenterViewModel();
-            return objCenterViewModel.getSupervisors(intCenterID);
+            UserDetails objUserDetails = new UserDetails();
+
+            List<KPIItem> lstKPIItems = EvaluationEngine.GetCenterKPI(strCenterID);
+            objUserDetails.UserName = lstKPIItems.Select(x => x.AgentName).ToArray();
+            objUserDetails.UserScore = lstKPIItems.Select(x => x.Score).ToArray();
+            objUserDetails.TopKPIs = lstKPIItems.Select(x => x.TopKPI).ToArray();
+            objUserDetails.BottomKPIs = lstKPIItems.Select(x => x.BottomKPI).ToArray();
+            objUserDetails.AgentID = lstKPIItems.Select(x => x.AgentId).ToArray();
+            return objUserDetails;
+            //CenterViewModel objCenterViewModel = new CenterViewModel();
+            //return objCenterViewModel.getSupervisors(strCenterID);
+        }
+
+
+        [WebMethod]
+        public UserDetails GetAgentInfo(string strSupID)
+        {
+            UserDetails objUserDetails = new UserDetails();
+
+            List<KPIItem> lstKPIItems = EvaluationEngine.GetSupervisorKPI(strSupID);
+            objUserDetails.UserName = lstKPIItems.Select(x => x.AgentName).ToArray();
+            objUserDetails.UserScore = lstKPIItems.Select(x => x.Score).ToArray();
+            objUserDetails.TopKPIs = lstKPIItems.Select(x => x.TopKPI).ToArray();
+            objUserDetails.BottomKPIs = lstKPIItems.Select(x => x.BottomKPI).ToArray();
+
+            return objUserDetails;
+            //CenterViewModel objCenterViewModel = new CenterViewModel();
+            //return objCenterViewModel.getSupervisors(strCenterID);
         }
 
         [WebMethod]

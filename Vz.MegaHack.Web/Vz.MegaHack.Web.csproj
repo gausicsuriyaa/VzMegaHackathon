@@ -19,7 +19,6 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -82,12 +81,14 @@
     <Content Include="Content\Images\Agent7.jpg" />
     <Content Include="Content\Images\Agent8.jpg" />
     <Content Include="Content\Images\Agent9.jpg" />
+    <Content Include="Content\Scripts\Libs\customEvents.js" />
     <Content Include="Content\Scripts\Libs\drilldown.js" />
     <Content Include="Content\Scripts\Libs\highcharts.js" />
     <Content Include="Content\Scripts\Libs\jquery-1.10.2.min.js" />
     <Content Include="Content\Scripts\Libs\jquery.layout.js" />
     <Content Include="Global.asax" />
     <Content Include="Services\CCTService.asmx" />
+    <Content Include="SupView.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +106,13 @@
     <Compile Include="Services\CCTService.asmx.cs">
       <DependentUpon>CCTService.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SupView.aspx.cs">
+      <DependentUpon>SupView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupView.aspx.designer.cs">
+      <DependentUpon>SupView.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

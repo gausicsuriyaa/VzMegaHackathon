@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vz.MegaHack.Core {
+namespace Vz.MegaHack.Entities {
 
     public class LeaderBoardItem {
         public string Name { get; set;  }

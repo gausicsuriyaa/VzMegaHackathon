@@ -6,6 +6,6 @@
   <Supervisor id="004" name="Supervisor 4" centerId="001"/>
   <Supervisor id="005" name="Supervisor 5" centerId="002"/>
   <Supervisor id="006" name="Supervisor 6" centerId="002"/>
-  <Supervisor id="005" name="Supervisor 7" centerId="002"/>
-  <Supervisor id="006" name="Supervisor 8" centerId="002"/>
+  <Supervisor id="007" name="Supervisor 7" centerId="002"/>
+  <Supervisor id="008" name="Supervisor 8" centerId="002"/>
 </Supervisors>

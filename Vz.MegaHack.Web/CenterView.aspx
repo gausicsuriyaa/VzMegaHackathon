@@ -7,6 +7,8 @@
     <script src="Content/Scripts/Libs/jquery-1.10.2.min.js"></script>
     <script src="Content/Scripts/Libs/jquery.layout.js"></script>
     <script src="Content/Scripts/Libs/highcharts.js"></script>
+    <script src="Content/Scripts/Libs/customEvents.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('body').layout({ applyDefaultStyles: true });
@@ -39,8 +41,6 @@
                     for (var i = 0; i < Result.d.length; i++) {
                         $("#ldrboarddiv").append("<div style='clear:both; width: 100%'><div style='float: left; width: 30%'><img src='Content/Images/" + Result.d[i].PhotoFileName + "' class='curvedimage' /></div><div style='float: left; color:white; width: 70%; margin-top: 10px; line-height: 26px'><b>Agent Name: </b>" + Result.d[i].Name + "<br /><b>Score: </b>" + Result.d[i].TotalPoints + " pts<br /><b>Rank: </b>" + Result.d[i].Rank + "</div></div>");
 
-
-
                         //$("#Table1").append("<tr><td class='left-align font-bold'>" + data.d[i].Make + "</td><td class='left-align font-bold'>" + data.d[i].Model + "</td><td class='left-align font-bold'>" + data.d[i].Year + "</td><td class='right-align font-bold'>" + data.d[i].Doors + "</td><td class='right-align font-bold'>" + data.d[i].Colour + "</td><td class='right-align font-bold'>" + data.d[i].Price + "</td></tr>");
                     }
                    
@@ -57,7 +57,7 @@
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
                 url: "Services/CCTService.asmx/GetSupervisorInfo",
-                data: "{ intCenterID : '" + centerid + "'}",
+                data: "{ strCenterID : '" + centerid + "'}",
                 dataType: "json",
                 success: function (Result) {
                     //alert(Result.d.UserName);
@@ -73,16 +73,18 @@
                     var seriesScore = new Array();
                     var seriesTopKPI = new Array();
                     var seriesBottomKPI = new Array();
+                    var seriesAgentID = new Array();
 
                     seriesName = Result.d.UserName;//.split(',');
                     seriesTopKPI = Result.d.TopKPIs;
                     seriesBottomKPI = Result.d.BottomKPIs;
+                    seriesAgentID = Result.d.AgentID;
                     //for (var i = 0; i < seriesOne.length; i++) {
                     //    seriesOne[i] = parseInt(seriesOne[i]);
                     //}
 
                     seriesScore = Result.d.UserScore;//.split(',');
-                    DreawChart(seriesName, seriesScore, seriesTopKPI, seriesBottomKPI);
+                    DreawChart(seriesName, seriesScore, seriesTopKPI, seriesBottomKPI, seriesAgentID);
                 },
                 error: function (Result) {
                     alert("Error");
@@ -91,7 +93,7 @@
 
         });
 
-        function DreawChart(uname, uvalue, utopkpi, ubottomkpi) {
+        function DreawChart(uname, uvalue, utopkpi, ubottomkpi, agentids) {
             var arr = []
             $.map(uvalue, function (item, index) {
                 arr.push(parseInt(item));
@@ -114,9 +116,10 @@
                         },
                         events: {
                             click: function (e) {
-                                alert('adfasdfasdf');
-                                console.log(e.xAxis[0].value);
-                                alert(e.xAxis[0].value);
+                                alert(agentids[0]);
+                                alert(agentids[agentids.indexOf(this.x)]);
+                                //console.log(e.xAxis[0].value);
+                                //alert(e.xAxis[0].value);
                                 //ajax post
                             }
                         }
@@ -128,7 +131,7 @@
                         text: 'Points (in %)'
                     },
                     stackLabels: {
-                        enabled: true,
+                        enabled: false,
                         style: {
                             fontWeight: 'bold',
                             color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
@@ -166,7 +169,19 @@
                 },
                 series: [{
                     name: 'Supervisors',
-                    data: arr
+                    data: arr,
+                    dataLabels: {
+                        enabled: true,
+                        y: -14,
+                        formatter: function () {
+                            var otherY = this.series.chart.series[0].yData[this.point.x];
+                            if (this.y >= otherY) {
+                                return 'Top KPI: ' + utopkpi[0] + '<br/>Bottom KPI: ' + ubottomkpi[0];
+                            } else {
+                                return null;
+                            }
+                        }
+                    }
                 }
 
                 //, {
@@ -181,6 +196,7 @@
 
 
             });
+            
         }
 
 
