@@ -630,7 +630,7 @@ $.layout = {
  *	Parsing code here adapted from jQuery 1.8 $.browse
  */
 (function(){
-	var u = navigator.userAgent.toLowerCase()
+	var u = navigator.userKPI.toLowerCase()
 	,	m = /(chrome)[ \/]([\w.]+)/.exec( u )
 		||	/(webkit)[ \/]([\w.]+)/.exec( u )
 		||	/(opera)(?:.*version|)[ \/]([\w.]+)/.exec( u )

@@ -10,7 +10,7 @@ namespace Vz.MegaHack.Core
 {
     public class CenterViewModel
     {
-        public UserDetails getSupervisors(int intCenterID)
+       public UserDetails getSupervisors(int intCenterID)
        {
            DataSet ds = new DataSet();
 

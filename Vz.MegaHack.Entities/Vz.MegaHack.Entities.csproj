@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgentKPIItem.cs" />
     <Compile Include="AgentItem.cs" />
     <Compile Include="LeaderBoardItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

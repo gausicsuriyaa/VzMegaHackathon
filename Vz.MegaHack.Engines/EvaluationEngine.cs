@@ -15,12 +15,12 @@ namespace Vz.MegaHack.Engines
         
         public static List<LeaderBoardItem> GetLeaderBoard(string centerId) {
             List<LeaderBoardItem> leaderBoard = new List<LeaderBoardItem>();
-            List<AgentItem> agents = AgentReader.GetAgentItems(centerId);
+            List<KPIItem> agents = KPIReader.GetKPIItems(centerId);
 
             int rank = 0;
-            foreach(AgentItem agent in agents.OrderByDescending(a => a.Points)) {
+            foreach(KPIItem agent in agents.OrderByDescending(a => a.Points)) {
                 leaderBoard.Add(new LeaderBoardItem() {
-                    Name = agent.AgentName,
+                    Name = agent.KPIName,
                     TotalPoints = agent.Points,
                     PhotoFileName = agent.PhotoFileName,
                     Rank = ++rank});

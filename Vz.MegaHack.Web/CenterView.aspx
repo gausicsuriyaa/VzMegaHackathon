@@ -527,16 +527,16 @@
         <div style="background-color: #FF3333; color: white; margin-top:-25px; width:100%">
             <h2 style="vertical-align: middle">Leader Board</h2>
         </div>
-        <p id="rcorners1" class="rcorners">Agent 1</p>
-        <p id="rcorners1" class="rcorners">Agent 2</p>
-        <p id="rcorners1" class="rcorners" style="background: yellow">Agent 3</p>
-        <p id="rcorners1" class="rcorners">Agent 4</p>
-        <p id="rcorners1" class="rcorners">Agent 5</p>
-        <p id="rcorners1" class="rcorners">Agent 6</p>
-        <p id="rcorners1" class="rcorners">Agent 7</p>
-        <p id="rcorners1" class="rcorners">Agent 8</p>
-        <p id="rcorners1" class="rcorners">Agent 9</p>
-        <p id="rcorners1" class="rcorners">Agent 10</p>
+        <p id="rcorners1" class="rcorners">KPI 1</p>
+        <p id="rcorners1" class="rcorners">KPI 2</p>
+        <p id="rcorners1" class="rcorners" style="background: yellow">KPI 3</p>
+        <p id="rcorners1" class="rcorners">KPI 4</p>
+        <p id="rcorners1" class="rcorners">KPI 5</p>
+        <p id="rcorners1" class="rcorners">KPI 6</p>
+        <p id="rcorners1" class="rcorners">KPI 7</p>
+        <p id="rcorners1" class="rcorners">KPI 8</p>
+        <p id="rcorners1" class="rcorners">KPI 9</p>
+        <p id="rcorners1" class="rcorners">KPI 10</p>
     </div>
 
     </form>
