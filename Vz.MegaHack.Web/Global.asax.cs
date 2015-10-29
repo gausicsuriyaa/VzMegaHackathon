@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using Vz.MegaHack.Core;
 
 namespace Vz.MegaHack.Web
 {
@@ -11,6 +12,7 @@ namespace Vz.MegaHack.Web
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            PathManager.Initialize(Server.MapPath("~/Content/Data"));
         }
     }
 }

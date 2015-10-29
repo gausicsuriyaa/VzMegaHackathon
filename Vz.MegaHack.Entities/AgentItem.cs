@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vz.MegaHack.Entities
-{
-    public class LeaderBoard
-    {
+namespace Vz.MegaHack.Entities {
+    public class AgentItem {
+        public string AgentId { get; set; }
         public string AgentName { get; set; }
+        public DateTime Date { get; set; }
         public int Points { get; set; }
-        public int Rank { get; set; }
-        public string AgentImage { get; set; }
+        public string PhotoFileName { get; set; }
     }
 }

@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -110,6 +111,10 @@
     <ProjectReference Include="..\Vz.MegaHack.Core\Vz.MegaHack.Core.csproj">
       <Project>{659e2ff0-fc5b-4ac2-9e2e-c0851b58a971}</Project>
       <Name>Vz.MegaHack.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vz.MegaHack.Engines\Vz.MegaHack.Engines.csproj">
+      <Project>{c0f0cf1d-8597-4934-b75b-87ffa241dde1}</Project>
+      <Name>Vz.MegaHack.Engines</Name>
     </ProjectReference>
     <ProjectReference Include="..\Vz.MegaHack.Entities\Vz.MegaHack.Entities.csproj">
       <Project>{f36dfa1a-9864-48be-98ee-908f819e9ee1}</Project>

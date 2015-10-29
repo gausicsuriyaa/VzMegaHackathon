@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vz.MegaHack.Test", "Vz.MegaHack.Test\Vz.MegaHack.Test.csproj", "{C76BDA22-10C7-49B0-A6D2-A3D1BD9DAA67}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vz.MegaHack.Core", "Vz.MegaHack.Core\Vz.MegaHack.Core.csproj", "{659E2FF0-FC5B-4AC2-9E2E-C0851B58A971}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vz.MegaHack.Entities", "Vz.MegaHack.Entities\Vz.MegaHack.Entities.csproj", "{F36DFA1A-9864-48BE-98EE-908F819E9EE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vz.MegaHack.Engines", "Vz.MegaHack.Engines\Vz.MegaHack.Engines.csproj", "{C0F0CF1D-8597-4934-B75B-87FFA241DDE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vz.MegaHack.Data", "Vz.MegaHack.Data\Vz.MegaHack.Data.csproj", "{DB7EC613-F6FF-464F-B887-14DDA8BE347A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{F36DFA1A-9864-48BE-98EE-908F819E9EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F36DFA1A-9864-48BE-98EE-908F819E9EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F36DFA1A-9864-48BE-98EE-908F819E9EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0F0CF1D-8597-4934-B75B-87FFA241DDE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0F0CF1D-8597-4934-B75B-87FFA241DDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0F0CF1D-8597-4934-B75B-87FFA241DDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0F0CF1D-8597-4934-B75B-87FFA241DDE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB7EC613-F6FF-464F-B887-14DDA8BE347A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB7EC613-F6FF-464F-B887-14DDA8BE347A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB7EC613-F6FF-464F-B887-14DDA8BE347A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB7EC613-F6FF-464F-B887-14DDA8BE347A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

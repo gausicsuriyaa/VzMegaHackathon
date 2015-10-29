@@ -39,7 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LeaderBoard.cs" />
+    <Compile Include="AgentItem.cs" />
+    <Compile Include="LeaderBoardItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDetails.cs" />
   </ItemGroup>
