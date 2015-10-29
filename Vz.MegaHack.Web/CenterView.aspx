@@ -19,7 +19,7 @@
             //}, function () {
             //    $(".rcorners").removeClass("active");
             //});
-
+            var centerid = 3
             $(".rcorners").click(function () {
                 $('p').removeClass('active');
                 $(this).addClass('active');
@@ -29,8 +29,8 @@
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
-                url: "Service.asmx/FruitAnalysis2",
-                data: "{}",
+                url: "Services/CCTService.asmx/GetSupervisorInfo",
+                data: "{ intCenterID : '" + centerid + "'}",
                 dataType: "json",
                 success: function (Result) {
                     //alert(Result.d.UserName);
@@ -42,15 +42,20 @@
                         data.push(serie);
                     }
                     //DreawChart(data);
-                    var seriesOne = new Array();
-                    var seriesTwo = new Array();
-                    seriesOne = Result.d.UserName;//.split(',');
+                    var seriesName = new Array();
+                    var seriesScore = new Array();
+                    var seriesTopKPI = new Array();
+                    var seriesBottomKPI = new Array();
+
+                    seriesName = Result.d.UserName;//.split(',');
+                    seriesTopKPI = Result.d.TopKPIs;
+                    seriesBottomKPI = Result.d.BottomKPIs;
                     //for (var i = 0; i < seriesOne.length; i++) {
                     //    seriesOne[i] = parseInt(seriesOne[i]);
                     //}
 
-                    seriesTwo = Result.d.UserValue;//.split(',');
-                    DreawChart(seriesOne, seriesTwo);
+                    seriesScore = Result.d.UserScore;//.split(',');
+                    DreawChart(seriesName, seriesScore, seriesTopKPI, seriesBottomKPI);
                 },
                 error: function (Result) {
                     alert("Error");
@@ -59,7 +64,7 @@
 
         });
 
-        function DreawChart(uname, uvalue) {
+        function DreawChart(uname, uvalue, utopkpi, ubottomkpi) {
             var arr = []
             $.map(uvalue, function (item, index) {
                 arr.push(parseInt(item));
@@ -71,7 +76,7 @@
                     type: 'bar'
                 },
                 title: {
-                    text: 'Stacked column chart'
+                    text: 'Supervisor Details'
                 },
                 xAxis: {
                     categories: uname,
@@ -94,7 +99,7 @@
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Total fruit consumption'
+                        text: 'Points (in %)'
                     },
                     stackLabels: {
                         enabled: true,
@@ -110,10 +115,12 @@
                     formatter: function () {
                         var ind = uname.indexOf(this.x);
                         var s;
-                        $.each(this.points, function (i, point) {
-                            //s += point.series.options.composition[ind];
-                            s = "Name: " + point.x;
-                        });
+                        s = "<b>Name: </b>" + uname[ind] + "<br/><b>Score: </b>" + uvalue[ind] + "%<br/><b>Top KPIs: </b>" + utopkpi[ind] + "<br/><b>Bottom KPIs: </b>" + ubottomkpi[ind];
+                        //$.each(this.points, function (i, point) {
+                        //    //s += point.series.options.composition[ind];
+
+                        //    s = "<b>Name: </b>" + point.x + "<br/><b>Score: </b>" + point.y + "%<br/><b>Top KPIs: </b>" + utopkpi[ind] + "<br/><b>Bottom KPIs: </b>" + ubottomkpi[ind];
+                        //});
                         return s;
                     }
                     //headerFormat: '<b>{point.x}</b><br/>',
@@ -132,7 +139,7 @@
                     }
                 },
                 series: [{
-                    name: 'ss',
+                    name: 'Supervisors',
                     data: arr
                 }
 
@@ -483,7 +490,7 @@
             <div id="container" style="min-width: 310px; height: 600px; margin: 0 auto"></div>
         </div>
 
-        <div id="upright" style="padding-left: 10px">
+        <%--<div id="upright" style="padding-left: 10px">
 
             <table id="t1" style="width: 90%; border:1px solid;">
                 <thead>
@@ -512,9 +519,9 @@
                     <td>FCR 2</td>
                 </tr>
             </table>
-        </div>
+        </div>--%>
     </div>
-    <div class="ui-layout-north topheader">Prototype</div>
+    <div class="ui-layout-north topheader">Call Center Gamfication</div>
     
     <div class="ui-layout-east rightpane" style="background-color: #363636">
         <div style="background-color: #FF3333; color: white; margin-top:-25px; width:100%">

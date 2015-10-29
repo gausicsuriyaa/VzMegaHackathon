@@ -11,6 +11,6 @@ namespace Vz.MegaHack.Entities
         public string AgentName { get; set; }
         public int Points { get; set; }
         public int Rank { get; set; }
-
+        public string AgentImage { get; set; }
     }
 }

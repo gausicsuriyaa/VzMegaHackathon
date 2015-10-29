@@ -66,11 +66,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CenterView.aspx" />
-    <Content Include="Content\Scripts\drilldown.js" />
-    <Content Include="Content\Scripts\highcharts.js" />
-    <Content Include="Content\Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Content\Scripts\jquery.layout.js" />
+    <Content Include="Content\Images\Agent1.jpg" />
+    <Content Include="Content\Images\Agent10.jpg" />
+    <Content Include="Content\Images\Agent2.jpg" />
+    <Content Include="Content\Images\Agent3.jpg" />
+    <Content Include="Content\Images\Agent4.jpg" />
+    <Content Include="Content\Images\Agent5.jpg" />
+    <Content Include="Content\Images\Agent6.jpg" />
+    <Content Include="Content\Images\Agent7.jpg" />
+    <Content Include="Content\Images\Agent8.jpg" />
+    <Content Include="Content\Images\Agent9.jpg" />
+    <Content Include="Content\Scripts\Libs\drilldown.js" />
+    <Content Include="Content\Scripts\Libs\highcharts.js" />
+    <Content Include="Content\Scripts\Libs\jquery-1.10.2.min.js" />
+    <Content Include="Content\Scripts\Libs\jquery.layout.js" />
     <Content Include="Global.asax" />
+    <Content Include="Services\CCTService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -85,11 +96,25 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CCTService.asmx.cs">
+      <DependentUpon>CCTService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Styles\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vz.MegaHack.Core\Vz.MegaHack.Core.csproj">
+      <Project>{659e2ff0-fc5b-4ac2-9e2e-c0851b58a971}</Project>
+      <Name>Vz.MegaHack.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vz.MegaHack.Entities\Vz.MegaHack.Entities.csproj">
+      <Project>{f36dfa1a-9864-48be-98ee-908f819e9ee1}</Project>
+      <Name>Vz.MegaHack.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
