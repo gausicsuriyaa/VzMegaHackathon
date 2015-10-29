@@ -86,7 +86,11 @@
     <Content Include="Content\Scripts\Libs\drilldown.js" />
     <Content Include="Content\Scripts\Libs\highcharts.js" />
     <Content Include="Content\Scripts\Libs\jquery-1.10.2.min.js" />
+    <Content Include="Content\Scripts\Libs\jquery-ui-slider-pips.js" />
+    <Content Include="Content\Scripts\Libs\jquery-ui.min.js" />
     <Content Include="Content\Scripts\Libs\jquery.layout.js" />
+    <Content Include="Content\Styles\jquery-ui-slider-pips.css" />
+    <Content Include="Content\Styles\jquery-ui.min.css" />
     <Content Include="DetailView.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Services\CCTService.asmx" />
@@ -133,7 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Styles\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

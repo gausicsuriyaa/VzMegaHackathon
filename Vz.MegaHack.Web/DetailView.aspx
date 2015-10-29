@@ -6,9 +6,9 @@
     <title></title>
     <script src="Content/Scripts/Libs/jquery-1.10.2.min.js"></script>
     <script src="Content/Scripts/Libs/jquery.layout.js"></script>
-    <script src="Content/Scripts/Libs/highcharts.js"></script>
-    <script src="Content/Scripts/Libs/customEvents.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="Content/Scripts/Libs/jquery-ui.min.js"></script>
+    <script src="Content/Scripts/Libs/jquery-ui-slider-pips.js"></script>
+
     <script type="text/javascript">
 
         function getParameterByName(name) {
@@ -65,13 +65,6 @@
 
         }
 
-        .rcorners {
-            border-radius: 25px;
-            background: #8AC007;
-            padding: 20px;
-            width: 118px;
-            height: 110px;
-        }
 
 
         #upleft {
@@ -84,11 +77,6 @@
             border-right-color: gray;*/
         }
 
-        /*#upright {
-            width: 40%;
-            height: 100%;
-            float: left;
-        }*/
 
         #below {
             height: 290px;
@@ -100,19 +88,105 @@
             clear: both;
         }
 
-       .curvedimage {
-            border-top-right-radius:50% 10%;
-            border-top-left-radius:50% 10%;
-            border-bottom-right-radius:50% 10%;
-            border-bottom-left-radius:50% 10%;
-            width: 130px;
-            height:130px;
-        }
 
        .ui-layout-resizer-east
        {
            right : 40% !important;
        }
+
+       .table-header-rotated{
+           border-collapse: collapse;
+       }
+
+       .csstransforms .table-header-rotated td{
+           width: 30px;
+       }
+
+       .no-csstransforms .table-header-rotated th {
+           padding: 5px 10px;
+       }
+
+       .table-header-rotated td{
+           text-align: center;
+           padding: 10px 5px;
+           border: 1px solid #ccc;
+       }
+
+       .csstransforms .table-header-rotated th.rotate > div {
+           -webkit-transform: translate(25px, 51px) rotate(315deg);
+           -ms-transform: translate(25px, 51px) rotate(315deg);
+           transform: translate(25px, 51px) rotate(315deg);
+           width:30px;
+       }
+
+       .csstransforms .table-header-rotated th.rotate > div > span {
+          border-bottom: 1px solid #ccc;
+          padding: 5px 10px;
+       }
+
+       .table-header-rotated th.row-header{
+            padding: 0 10px;
+           border-bottom: 1px solid #ccc;
+           border-left: 1px solid #ccc;
+       }
+    </style>
+<link href="Content/Styles/jquery-ui-slider-pips.css" rel="stylesheet" />
+<link href="Content/Styles/jquery-ui.min.css" rel="stylesheet" />
+    <style>
+        #rainbow-slider {
+            background: linear-gradient(to right, #00FF00 0, #FFFFFF 50%, #ff0000 100%) no-repeat;
+            background-size: cover;
+            border-radius: 30px;
+            border:none;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,.18);
+            height:10px;
+        }
+
+        #rainbow-slider.ui-slider-horizontal .ui-slider-range{
+            background: transparent;
+        }
+
+        #rainbow-slider .ui-slider-handle{
+            background: rgba(255,255,255,0.21);
+            border-color: rgba(0, 0, 0, 0.56);
+            box-shadow: inset 0 0 2px 2px rgba(255, 255, 255, 0.89);
+            border-radius: 20px;
+            top: -8px;
+        }
+
+        #rainbow-slider .ui-slider-handle.ui-state-hover,
+        #rainbow-slider .ui-slider-handle:hover,
+        #rainbow-slider .ui-slider-handle.ui-state-focus,
+        #rainbow-slider .ui-slider-handle:focus,
+        #rainbow-slider .ui-slider-handle.ui-state-active{
+            background: rgba(255,255,255,0.21);
+        }
+
+
+        #rainbow-slider .ui-slider-pip .ui-slider-label{
+            width: 6em;
+            margin-left: -3em;
+        }
+
+        #rainbow-slider .ui-slider-pip .ui-slider-label {
+            color: #000000;
+        }
+
+        #rainbow-slider .ui-slider-pip .ui-slider-line {
+            top: 1px;
+        }
+
+        #rainbow-slider .ui-slider-pip:nth-of-type(odd){
+            top: auto;
+            bottom: 32px;
+        }
+
+        #rainbow-slider .ui-slider-pip:nth-of-type(odd) .ui-slider-line{
+            top: 21px;
+        }
+
+
+
 
     </style>
 </head>
