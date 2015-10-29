@@ -20,6 +20,7 @@
             //    $(".rcorners").removeClass("active");
             //});
             var centerid = 3
+
             $(".rcorners").click(function () {
                 $('p').removeClass('active');
                 $(this).addClass('active');
@@ -70,7 +71,7 @@
                 arr.push(parseInt(item));
             });
 
-            
+
             $('#container').highcharts({
                 chart: {
                     type: 'bar'
@@ -85,9 +86,8 @@
                             cursor: 'pointer',
                             fontSize: '14px'
                         },
-                    events: {
-                            click: function(e)
-                            {
+                        events: {
+                            click: function (e) {
                                 alert('adfasdfasdf');
                                 console.log(e.xAxis[0].value);
                                 alert(e.xAxis[0].value);
@@ -109,7 +109,7 @@
                         }
                     }
                 },
-               
+
                 tooltip: {
                     shared: true,
                     formatter: function () {
@@ -440,6 +440,7 @@
 
         .rightpane {
             background-color: #363636 !important;
+
         }
 
         .rcorners {
@@ -452,23 +453,20 @@
 
 
         #upleft {
-            width: 59%;
+            width: 79%;
             height: 100%;
             float: left;
-            /*border-style: solid;*/
-            border-width: 1px;
-            border-right: solid;
-            border-right-color: gray;
-        }
-
-        #upright {
-            width: 40%;
-            height: 100%;
             /*border-style: solid;
             border-width: 1px;
-            border-color: gray;*/
-            float: left;
+            border-right: solid;
+            border-right-color: gray;*/
         }
+
+        /*#upright {
+            width: 40%;
+            height: 100%;
+            float: left;
+        }*/
 
         #below {
             height: 290px;
@@ -479,6 +477,20 @@
             border-top-color: gray;
             clear: both;
         }
+
+       .curvedimage {
+            border-top-right-radius:50% 10%;
+            border-top-left-radius:50% 10%;
+            border-bottom-right-radius:50% 10%;
+            border-bottom-left-radius:50% 10%;
+            width: 130px;
+            height:130px;
+        }
+
+       .ui-layout-resizer-east
+       {
+           right : 40% !important;
+       }
 
     </style>
 </head>
@@ -523,20 +535,29 @@
     </div>
     <div class="ui-layout-north topheader">Call Center Gamfication</div>
     
-    <div class="ui-layout-east rightpane" style="background-color: #363636">
-        <div style="background-color: #FF3333; color: white; margin-top:-25px; width:100%">
+    <div class="ui-layout-east rightpane" style="background-color: #363636; width : 39% !important;">
+        <div style="background-color: #3bbfaf; color: white; margin-top:-25px; width:100%">
             <h2 style="vertical-align: middle">Leader Board</h2>
         </div>
-        <p id="rcorners1" class="rcorners">KPI 1</p>
-        <p id="rcorners1" class="rcorners">KPI 2</p>
-        <p id="rcorners1" class="rcorners" style="background: yellow">KPI 3</p>
-        <p id="rcorners1" class="rcorners">KPI 4</p>
-        <p id="rcorners1" class="rcorners">KPI 5</p>
-        <p id="rcorners1" class="rcorners">KPI 6</p>
-        <p id="rcorners1" class="rcorners">KPI 7</p>
-        <p id="rcorners1" class="rcorners">KPI 8</p>
-        <p id="rcorners1" class="rcorners">KPI 9</p>
-        <p id="rcorners1" class="rcorners">KPI 10</p>
+        <div style="clear:both; width: 100%">
+            <div style="float: left; width: 30%">
+                <img src="Content/Images/Agent1.jpg" class="curvedimage" />
+            </div>
+            <div style="float: left; color:white; width: 70%; margin-top: 10px; line-height: 26px">
+                <b>Agent Name: </b>fasdfa fasdf asdf<br />
+                <b>Score: </b>1000 pts<br />
+                <b>Rank: </b>1
+            </div>
+        </div>
+        <br />
+        <div style="clear:both">
+            <div style="float: left">
+                <img src="Content/Images/Agent2.jpg" class="curvedimage" />
+            </div>
+            <div style="float: left">
+                sdfsfsdfsd
+            </div>
+        </div>
     </div>
 
     </form>
