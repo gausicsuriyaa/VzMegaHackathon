@@ -65,6 +65,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AgentView.aspx" />
     <Content Include="CenterView.aspx" />
     <Content Include="Content\Data\AgentInfo.xml" />
     <Content Include="Content\Data\AgentKPI.xml" />
@@ -86,18 +87,33 @@
     <Content Include="Content\Scripts\Libs\highcharts.js" />
     <Content Include="Content\Scripts\Libs\jquery-1.10.2.min.js" />
     <Content Include="Content\Scripts\Libs\jquery.layout.js" />
+    <Content Include="DetailView.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Services\CCTService.asmx" />
     <Content Include="SupView.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgentView.aspx.cs">
+      <DependentUpon>AgentView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentView.aspx.designer.cs">
+      <DependentUpon>AgentView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CenterView.aspx.cs">
       <DependentUpon>CenterView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CenterView.aspx.designer.cs">
       <DependentUpon>CenterView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetailView.aspx.cs">
+      <DependentUpon>DetailView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailView.aspx.designer.cs">
+      <DependentUpon>DetailView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

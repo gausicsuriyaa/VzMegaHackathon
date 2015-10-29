@@ -10,9 +10,19 @@
     <script src="Content/Scripts/Libs/customEvents.js"></script>
 
     <script type="text/javascript">
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+
         $(document).ready(function () {
             $('body').layout({ applyDefaultStyles: true });
 
+            $('#divCenter').html('CSSCC');
             //codepedia.info/2015/07/highcharts-asp-net-create-pie-chart-with-jquery-ajax-in-c-sharp-ms-sql-database/
             //www.tutorialized.com/tutorial/Charts-and-graphs-using-jquery-and-charting-library-the-HighCharts/67976
             //jsfiddle.net/gh/get/jquery/1.7.2/highslide-software/highcharts.com/tree/master/samples/highcharts/plotoptions/series-point-events-click/
@@ -21,8 +31,8 @@
             //}, function () {
             //    $(".rcorners").removeClass("active");
             //});
-            var centerid = "001";
-
+            //var centerid = "001";
+            var centerid = getParameterByName("cid");
             $(".rcorners").click(function () {
                 $('p').removeClass('active');
                 $(this).addClass('active');
@@ -84,7 +94,7 @@
                     //}
 
                     seriesScore = Result.d.UserScore;//.split(',');
-                    DreawChart(seriesName, seriesScore, seriesTopKPI, seriesBottomKPI, seriesAgentID);
+                    DreawChart(seriesName, seriesScore, seriesTopKPI, seriesBottomKPI, seriesAgentID, centerid);
                 },
                 error: function (Result) {
                     alert("Error");
@@ -93,7 +103,7 @@
 
         });
 
-        function DreawChart(uname, uvalue, utopkpi, ubottomkpi, agentids) {
+        function DreawChart(uname, uvalue, utopkpi, ubottomkpi, agentids,cid) {
             var arr = []
             $.map(uvalue, function (item, index) {
                 arr.push(parseInt(item));
@@ -116,8 +126,8 @@
                         },
                         events: {
                             click: function (e) {
-                                alert(agentids[0]);
-                                alert(agentids[agentids.indexOf(this.x)]);
+                                window.location.href = "SupView.aspx?cid=" + cid + "&sid=" + agentids[jQuery.inArray(this.value, uname)];
+                                //alert(agentids[jQuery.inArray(this.value, uname)]);
                                 //console.log(e.xAxis[0].value);
                                 //alert(e.xAxis[0].value);
                                 //ajax post
@@ -174,9 +184,10 @@
                         enabled: true,
                         y: -14,
                         formatter: function () {
+                            var indformat = uname.indexOf(this.x);
                             var otherY = this.series.chart.series[0].yData[this.point.x];
                             if (this.y >= otherY) {
-                                return 'Top KPI: ' + utopkpi[0] + '<br/>Bottom KPI: ' + ubottomkpi[0];
+                                return '<div style="padding-top: 10px">Top KPI: ' + utopkpi[indformat] + '<br/>Bottom KPI: ' + ubottomkpi[indformat] + "</div>";
                             } else {
                                 return null;
                             }
@@ -471,7 +482,7 @@
             font-family: Arial;
         }
         .topheader {
-            background-color: #3bbfaf !important;
+            background-color: #FF3333 !important;
             font-weight: bold;
             color: white;
         }
@@ -540,42 +551,16 @@
     <form id="form1" runat="server">
          <div class="ui-layout-center leftpane">
         <div id="upleft">
-
             <div id="container" style="min-width: 310px; height: 600px; margin: 0 auto"></div>
         </div>
 
-        <%--<div id="upright" style="padding-left: 10px">
-
-            <table id="t1" style="width: 90%; border:1px solid;">
-                <thead>
-                    <th><b>Supervisor Name</b></th>
-                    <th><b>Top KPI</b></th>
-                    <th><b>Worst KPI</b></th>
-                </thead>
-                <tr>
-                    <td>Supervisor 1</td>
-                    <td>FCR</td>
-                    <td>FCR 2</td>
-                </tr>
-                <tr>
-                    <td>Supervisor 1</td>
-                    <td>FCR</td>
-                    <td>FCR 2</td>
-                </tr>
-                <tr>
-                    <td>Supervisor 1</td>
-                    <td>FCR</td>
-                    <td>FCR 2</td>
-                </tr>
-                <tr>
-                    <td>Supervisor 1</td>
-                    <td>FCR</td>
-                    <td>FCR 2</td>
-                </tr>
-            </table>
-        </div>--%>
     </div>
-    <div class="ui-layout-north topheader">Call Center Gamfication</div>
+    <div class="ui-layout-north topheader">
+        Call Center Gamfication
+
+        <div style="float:right; color: yellow" id="divCenter">CSSC</div>
+        <div style="float:right">Center Name: &nbsp;&nbsp; </div>
+    </div>
     
     <div class="ui-layout-east rightpane" style="background-color: #363636; width : 39% !important;">
         <div style="background-color: #3bbfaf; color: white; margin-top:-25px; width:100%">

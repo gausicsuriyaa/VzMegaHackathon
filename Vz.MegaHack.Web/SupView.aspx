@@ -10,10 +10,29 @@
     <script src="Content/Scripts/Libs/customEvents.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script type="text/javascript">
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        function goback()
+        {
+            window.location.href = "CenterView.aspx?cid=" + getParameterByName('cid');
+        }
+
+        function gotodetailview()
+        {
+            window.location.href = "DetailView.aspx?sid=" + getParameterByName('sid') + "&cid=" + getParameterByName('cid');
+        }
+       
         $(document).ready(function () {
             $('body').layout({ applyDefaultStyles: true });
-
-            var centerid = "001";
+            $('#divSupName').html('Tester');
+            var centerid = getParameterByName('cid');
+            var supid = getParameterByName('sid');
 
             $.ajax({
                 type: "POST",
@@ -35,16 +54,18 @@
                     var seriesScore = new Array();
                     var seriesTopKPI = new Array();
                     var seriesBottomKPI = new Array();
+                    var seriesAgentID = new Array();
 
                     seriesName = Result.d.UserName;//.split(',');
                     seriesTopKPI = Result.d.TopKPIs;
                     seriesBottomKPI = Result.d.BottomKPIs;
+                    seriesAgentID = Result.d.AgentID;
                     //for (var i = 0; i < seriesOne.length; i++) {
                     //    seriesOne[i] = parseInt(seriesOne[i]);
                     //}
 
                     seriesScore = Result.d.UserScore;//.split(',');
-                    DreawChart(seriesName, seriesScore, seriesTopKPI, seriesBottomKPI);
+                    DreawChart(seriesName, seriesScore, seriesTopKPI, seriesBottomKPI, seriesAgentID, centerid, supid);
                 },
                 error: function (Result) {
                     alert("Error");
@@ -53,7 +74,7 @@
 
         });
 
-        function DreawChart(uname, uvalue, utopkpi, ubottomkpi) {
+        function DreawChart(uname, uvalue, utopkpi, ubottomkpi, agentids, cid, sid) {
             var arr = []
             $.map(uvalue, function (item, index) {
                 arr.push(parseInt(item));
@@ -78,10 +99,8 @@
                         },
                         events: {
                             click: function (e) {
-                                alert('adfasdfasdf');
-                                console.log(e.xAxis[0].value);
-                                alert(e.xAxis[0].value);
-                                //ajax post
+                                window.location.href = "AgentView.aspx?cid=" + cid + "&aid=" + agentids[jQuery.inArray(this.value, uname)] + "&sid=" + sid;
+
                             }
                         }
                     }
@@ -145,19 +164,19 @@
                 }
 
 
-            }//);
-            , function (chart) {
-
-                var bottom = chart.plotHeight - 20;
-
-                $.each(chart.series[0].data, function (i, data) {
-
-                    data.dataLabel.attr({
-                        y: bottom
-                    });
-                });
-
             });
+            //, function (chart) {
+
+            //    var bottom = chart.plotHeight - 20;
+
+            //    $.each(chart.series[0].data, function (i, data) {
+
+            //        data.dataLabel.attr({
+            //            y: bottom
+            //        });
+            //    });
+
+            //});
         }
 
 
@@ -180,7 +199,7 @@
             font-family: Arial;
         }
         .topheader {
-            background-color: #3bbfaf !important;
+            background-color: #FF3333 !important;
             font-weight: bold;
             color: white;
         }
@@ -204,7 +223,7 @@
 
 
         #upleft {
-            width: 79%;
+            width: 99%;
             height: 100%;
             float: left;
             /*border-style: solid;
@@ -249,13 +268,19 @@
     <form id="form1" runat="server">
          <div class="ui-layout-center leftpane">
         <div id="upleft">
-
+            <div style="float:right">
+                <a style="cursor:pointer; color: darkblue; text-decoration-line: underline" onclick="gotodetailview()">Detail View</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a style="cursor:pointer; color: darkblue; text-decoration-line: underline" onclick="goback()">Back</a>
+            </div>
             <div id="container" style="min-width: 310px; height: 600px; margin: 0 auto"></div>
         </div>
 
         
     </div>
-    <div class="ui-layout-north topheader">Call Center Gamfication</div>
+    <div class="ui-layout-north topheader">Call Center Gamfication
+
+        <div style="float:right; color: yellow" id="divSupName"></div>
+        <div style="float:right">Supervisor Name: &nbsp;&nbsp; </div>
+    </div>
     
     
 
