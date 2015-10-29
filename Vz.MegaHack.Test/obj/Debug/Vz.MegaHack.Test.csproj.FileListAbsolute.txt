@@ -9,3 +9,4 @@ D:\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Test.pdb
 D:\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\nunit.framework.dll
 D:\VzMegaHackathon\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.dll
 D:\VzMegaHackathon\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.pdb
+D:\VzMegaHackathon\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.csprojResolveAssemblyReference.cache

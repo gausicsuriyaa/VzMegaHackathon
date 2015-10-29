@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Vz.MegaHack.Entities {
-    public class AgentKPIItem {
+    public class KPIItem {
         public string AgentName { get; set; }
         public int Score { get; set; }
         public string TopKPI { get; set; }
