@@ -14,7 +14,25 @@ namespace Vz.MegaHack.Data
         static string kpiInfoFile = "KPIInfo.xml";
         static string agentKpiFile = "AgentKPI.xml";
 
-        public static List<KPIInfo> GetKPI() {
+        public static List<KPIInfo> GetKPIInfo() {
+            List<KPIInfo> elements = new List<KPIInfo>();
+
+            XDocument doc = XDocument.Load(Path.Combine(PathManager.DataPath, kpiInfoFile));
+
+            var items = doc.Root.Elements("KPI").Where(i => i.Attribute("category").Value.Equals("Metrics")); ;
+
+            foreach (var item in items) {
+                elements.Add(new KPIInfo() {
+                    KpiId = Convert.ToString(item.Attribute("id").Value),
+                    KpiName = Convert.ToString(item.Attribute("name").Value),
+                    Category = Convert.ToString(item.Attribute("category").Value)
+                });
+            }
+
+            return elements;
+        }
+
+        public static List<KPIInfo> GetAllKPIInfo() {
             List<KPIInfo> elements = new List<KPIInfo>();
 
             XDocument doc = XDocument.Load(Path.Combine(PathManager.DataPath, kpiInfoFile));
@@ -24,7 +42,8 @@ namespace Vz.MegaHack.Data
             foreach (var item in items) {
                 elements.Add(new KPIInfo() {
                     KpiId = Convert.ToString(item.Attribute("id").Value),
-                    KpiName = Convert.ToString(item.Attribute("name").Value)
+                    KpiName = Convert.ToString(item.Attribute("name").Value),
+                    Category = Convert.ToString(item.Attribute("category").Value)
                 });
             }
 
@@ -42,7 +61,11 @@ namespace Vz.MegaHack.Data
                 elements.Add(new AgentKPIInfo() {
                     AgentId = Convert.ToString(item.Attribute("id").Value),
                     KpiId = Convert.ToString(item.Attribute("kpiId").Value),
-                    KpiValue = Convert.ToInt32(item.Attribute("kpiValue").Value)
+                    Date = Convert.ToDateTime(item.Attribute("date").Value),
+                    KpiValue = Convert.ToInt32(item.Attribute("kpiValue").Value),
+                    HadTraining = Convert.ToBoolean(item.Attribute("hadTraining").Value),
+                    IsAwarded = Convert.ToBoolean(item.Attribute("isAwarded").Value),
+                    Description = Convert.ToString(item.Attribute("description").Value)
                 });
             }
 

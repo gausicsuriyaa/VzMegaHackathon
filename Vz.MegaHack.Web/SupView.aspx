@@ -37,8 +37,8 @@
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
-                url: "Services/CCTService.asmx/GetSupervisorInfo",
-                data: "{ strCenterID : '" + centerid + "'}",
+                url: "Services/CCTService.asmx/GetAgentInfo",
+                data: "{ strSupID : '" + supid + "'}",
                 dataType: "json",
                 success: function (Result) {
                     //alert(Result.d.UserName);

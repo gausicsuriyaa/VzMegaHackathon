@@ -8,5 +8,6 @@ namespace Vz.MegaHack.Entities {
     public class KPIInfo {
         public string KpiId { get; set; }
         public string KpiName { get; set; }
+        public string Category { get; set; }
     }
 }

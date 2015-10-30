@@ -67,6 +67,7 @@
   <ItemGroup>
     <Content Include="AgentView.aspx" />
     <Content Include="CenterView.aspx" />
+    <Content Include="Content\Data\AgentDashboard.xml" />
     <Content Include="Content\Data\AgentInfo.xml" />
     <Content Include="Content\Data\AgentKPI.xml" />
     <Content Include="Content\Data\CenterInfo.xml" />

@@ -14,7 +14,27 @@ namespace Vz.MegaHack.Data
         static string agentInfoFileName = "AgentInfo.xml";
         static string supervisorInfoFileName = "SupervisorInfo.xml";
 
-        public static List<AgentInfo> GetAgentItems(string centerId) {
+        public static AgentInfo GetAgentInfo(string agentId) {
+            XDocument doc = XDocument.Load(Path.Combine(PathManager.DataPath, agentInfoFileName));
+
+            var items = doc.Root.Elements("Agent").Where(i => i.Attribute("id").Value.Equals(agentId));
+
+            if (items.Count() > 0) {
+                var item = items.FirstOrDefault();
+
+                return new AgentInfo() {
+                    AgentId = Convert.ToString(item.Attribute("id").Value),
+                    AgentName = Convert.ToString(item.Attribute("name").Value),
+                    Date = Convert.ToDateTime(item.Attribute("date").Value),
+                    Points = Convert.ToInt32(item.Attribute("points").Value),
+                    PhotoFileName = Convert.ToString(item.Attribute("photoFileName").Value)
+                };
+            }
+
+            return null;
+        }
+
+        public static List<AgentInfo> GetAgentsForCenter(string centerId) {
             List<AgentInfo> AgentItems = new List<AgentInfo>();
 
             XDocument doc = XDocument.Load(Path.Combine(PathManager.DataPath, agentInfoFileName));
@@ -67,6 +87,14 @@ namespace Vz.MegaHack.Data
             }
 
             return supervisorItems;
+        }
+
+        public static string GetCenterIdForSupervisor(string supervisorId) {
+            List<SupervisorInfo> supervisorItems = new List<SupervisorInfo>();
+            XDocument doc = XDocument.Load(Path.Combine(PathManager.DataPath, supervisorInfoFileName));
+
+            var items = doc.Root.Elements("Supervisor").Where(i => i.Attribute("id").Value.Equals(supervisorId));
+            return items.FirstOrDefault().Attribute("centerId").Value.ToString();
         }
     }
 }

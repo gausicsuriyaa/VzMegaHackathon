@@ -178,6 +178,7 @@
                     }
                 },
                 series: [{
+                    showInLegend: false,
                     name: 'Supervisors',
                     data: arr,
                     dataLabels: {
