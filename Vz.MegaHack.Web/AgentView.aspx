@@ -145,6 +145,17 @@
                             },
                             y: 10
                         }
+                    }, {
+                        from: Date.UTC(2015, 9, 1),
+                        to: Date.UTC(2015, 11, 31),
+                        color: '#FFEEFF',
+                        label: {
+                            text: '<em>Quarter4</em>',
+                            style: {
+                                color: '#999999'
+                            },
+                            y: 10
+                        }
                     }]
 
                 },
@@ -192,7 +203,6 @@
                     name: 'Agent Performance',
                     id: 'employees',
                     type: 'area',
-                    step: 'left',
                     tooltip: {
                         headerFormat: '<span style="font-size: 11px;color:#666">{point.x:%B %e, %Y}</span><br>',
                         //pointFormat: '{point.name}<br><b>{point.y}</b>',
@@ -248,7 +258,6 @@
                     name: 'Agent Performance',
                     id: 'employees',
                     type: 'area',
-                    step: 'left',
                     tooltip: {
                         headerFormat: '<span style="font-size: 11px;color:#666">{point.x:%B %e, %Y}</span><br>',
                         //pointFormat: '{point.name}<br><b>{point.y}</b>',
@@ -304,7 +313,6 @@
                     name: 'Agent Performance',
                     id: 'employees',
                     type: 'area',
-                    step: 'left',
                     tooltip: {
                         headerFormat: '<span style="font-size: 11px;color:#666">{point.x:%B %e, %Y}</span><br>',
                         //pointFormat: '{point.name}<br><b>{point.y}</b>',
@@ -360,7 +368,6 @@
                     name: 'Agent Performance',
                     id: 'employees',
                     type: 'area',
-                    step: 'left',
                     tooltip: {
                         headerFormat: '<span style="font-size: 11px;color:#666">{point.x:%B %e, %Y}</span><br>',
                         //pointFormat: '{point.name}<br><b>{point.y}</b>',
