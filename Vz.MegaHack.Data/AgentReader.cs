@@ -13,6 +13,7 @@ namespace Vz.MegaHack.Data
     public static class AgentReader {
         static string agentInfoFileName = "AgentInfo.xml";
         static string supervisorInfoFileName = "SupervisorInfo.xml";
+        static string centerInfoFileName = "CenterInfo.xml";
 
         public static AgentInfo GetAgentInfo(string agentId) {
             XDocument doc = XDocument.Load(Path.Combine(PathManager.DataPath, agentInfoFileName));
@@ -95,6 +96,22 @@ namespace Vz.MegaHack.Data
 
             var items = doc.Root.Elements("Supervisor").Where(i => i.Attribute("id").Value.Equals(supervisorId));
             return items.FirstOrDefault().Attribute("centerId").Value.ToString();
+        }
+
+        public static string GetSupervisorName(string supervisorId) {
+            List<SupervisorInfo> supervisorItems = new List<SupervisorInfo>();
+            XDocument doc = XDocument.Load(Path.Combine(PathManager.DataPath, supervisorInfoFileName));
+
+            var items = doc.Root.Elements("Supervisor").Where(i => i.Attribute("id").Value.Equals(supervisorId));
+            return items.FirstOrDefault().Attribute("name").Value.ToString();
+        }
+
+        public static string GetCenterName(string centerId) {
+            List<SupervisorInfo> supervisorItems = new List<SupervisorInfo>();
+            XDocument doc = XDocument.Load(Path.Combine(PathManager.DataPath, centerInfoFileName));
+
+            var items = doc.Root.Elements("Center").Where(i => i.Attribute("id").Value.Equals(centerId));
+            return items.FirstOrDefault().Attribute("name").Value.ToString();
         }
     }
 }

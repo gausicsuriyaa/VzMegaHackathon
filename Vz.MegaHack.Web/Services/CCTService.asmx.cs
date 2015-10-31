@@ -24,13 +24,15 @@ namespace Vz.MegaHack.Web.Services
         public UserDetails GetSupervisorInfo(string strCenterID)
         {
             UserDetails objUserDetails = new UserDetails();
-
-            List<KPIItem> lstKPIItems = EvaluationEngine.GetCenterKPI(strCenterID);
+            CenterViewResponse objCenterViewResponse = EvaluationEngine.GetCenterView(strCenterID);
+            //List<KPIItem> lstKPIItems = EvaluationEngine.GetCenterView(strCenterID);
+            List<KPIItem> lstKPIItems = objCenterViewResponse.CenterView;
             objUserDetails.UserName = lstKPIItems.Select(x => x.AgentName).ToArray();
             objUserDetails.UserScore = lstKPIItems.Select(x => x.Score).ToArray();
             objUserDetails.TopKPIs = lstKPIItems.Select(x => x.TopKPI).ToArray();
             objUserDetails.BottomKPIs = lstKPIItems.Select(x => x.BottomKPI).ToArray();
             objUserDetails.AgentID = lstKPIItems.Select(x => x.AgentId).ToArray();
+            objUserDetails.HeaderName = objCenterViewResponse.CenterName;
             return objUserDetails;
             //CenterViewModel objCenterViewModel = new CenterViewModel();
             //return objCenterViewModel.getSupervisors(strCenterID);
@@ -41,13 +43,14 @@ namespace Vz.MegaHack.Web.Services
         public UserDetails GetAgentInfo(string strSupID)
         {
             UserDetails objUserDetails = new UserDetails();
-
-            List<KPIItem> lstKPIItems = EvaluationEngine.GetSupervisorKPI(strSupID);
+            SupervisorViewResponse objSupervisorViewResponse = EvaluationEngine.GetSupervisorView(strSupID);
+            List<KPIItem> lstKPIItems = objSupervisorViewResponse.SupervisorView;
             objUserDetails.UserName = lstKPIItems.Select(x => x.AgentName).ToArray();
             objUserDetails.UserScore = lstKPIItems.Select(x => x.Score).ToArray();
             objUserDetails.TopKPIs = lstKPIItems.Select(x => x.TopKPI).ToArray();
             objUserDetails.BottomKPIs = lstKPIItems.Select(x => x.BottomKPI).ToArray();
-
+            objUserDetails.HeaderName = objSupervisorViewResponse.SupervisorName;
+            objUserDetails.AgentID = lstKPIItems.Select(x => x.AgentId).ToArray();
             return objUserDetails;
             //CenterViewModel objCenterViewModel = new CenterViewModel();
             //return objCenterViewModel.getSupervisors(strCenterID);
@@ -56,7 +59,18 @@ namespace Vz.MegaHack.Web.Services
         [WebMethod]
         public LeaderBoardItem[] GetLeaderBoardDetails(string strCenterID)
         {
-            return EvaluationEngine.GetLeaderBoard(strCenterID).ToArray();
+            LeaderBoardResponse objLeaderBoardResponse = EvaluationEngine.GetLeaderBoard(strCenterID);
+            return objLeaderBoardResponse.LeaderBoard.ToArray();
+            //return EvaluationEngine.GetLeaderBoard(strCenterID).ToArray();
         }
+
+        [WebMethod]
+        public void GetHeatMapDetails(string strSupID)
+        {
+            HeatMapViewResponse objHeatMapViewResponse = EvaluationEngine.GetHeatMapView(strSupID);
+            List<Dictionary<string, string>> objlistdict = new List<Dictionary<string, string>>();
+            //objlistdict = EvaluationEngine.GetHeatMapView(strSupID);
+        }
+    
     }
 }

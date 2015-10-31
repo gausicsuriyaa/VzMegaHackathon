@@ -14,5 +14,7 @@ namespace Vz.MegaHack.Entities
         public string[] BottomKPIs { get; set; }
 
         public string[] AgentID { get; set; }
+
+        public string HeaderName { get; set; }
     }
 }

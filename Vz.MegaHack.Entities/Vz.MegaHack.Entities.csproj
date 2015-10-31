@@ -42,14 +42,19 @@
     <Compile Include="AgentInfo.cs" />
     <Compile Include="AgentKPIInfo.cs" />
     <Compile Include="AgentKPIScore.cs" />
+    <Compile Include="AgentViewResponse.cs" />
+    <Compile Include="CenterViewResponse.cs" />
     <Compile Include="HeatMapItem.cs" />
+    <Compile Include="HeatMapViewResponse.cs" />
     <Compile Include="KPIINfo.cs" />
     <Compile Include="KPIItem.cs" />
     <Compile Include="AgentItem.cs" />
     <Compile Include="KPIScoreInfo.cs" />
     <Compile Include="LeaderBoardItem.cs" />
+    <Compile Include="LeaderBoardResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SupervisorInfo.cs" />
+    <Compile Include="SupervisorViewResponse.cs" />
     <Compile Include="UserDetails.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

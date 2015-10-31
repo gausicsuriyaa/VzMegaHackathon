@@ -395,6 +395,46 @@
             $('body').layout({ applyDefaultStyles: true });
 
             var centerid = getParameterByName('cid');
+            var supid = getParameterByName('sid');
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Services/CCTService.asmx/GetHeatMapDetails",
+                data: "{ strSupID : '" + supid + "'}",
+                dataType: "json",
+                success: function (Result) {
+                    //alert(Result.d.UserName);
+                    //alert(Result.d.UserValue);
+                    //Result = Result.d;
+                    var data = [];
+                    for (var i in Result) {
+                        var serie = new Array(Result[i].Name, Result[i].Value);
+                        data.push(serie);
+                    }
+                    //DreawChart(data);
+                    var seriesName = new Array();
+                    var seriesScore = new Array();
+                    var seriesTopKPI = new Array();
+                    var seriesBottomKPI = new Array();
+                    var seriesAgentID = new Array();
+
+                    seriesName = Result.d.UserName;//.split(',');
+                    seriesTopKPI = Result.d.TopKPIs;
+                    seriesBottomKPI = Result.d.BottomKPIs;
+                    seriesAgentID = Result.d.AgentID;
+                    //for (var i = 0; i < seriesOne.length; i++) {
+                    //    seriesOne[i] = parseInt(seriesOne[i]);
+                    //}
+
+                    seriesScore = Result.d.UserScore;//.split(',');
+                    DreawChart(seriesName, seriesScore, seriesTopKPI, seriesBottomKPI, seriesAgentID, centerid, supid);
+                },
+                error: function (Result) {
+                    alert("Error");
+                }
+            });
+
 
 
         });

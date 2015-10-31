@@ -16,3 +16,17 @@ C:\Users\Administrator\Source\Repos\VzMegaHackathon3\Vz.MegaHack.Test\bin\Debug\
 C:\Users\Administrator\Source\Repos\VzMegaHackathon3\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Source\Repos\VzMegaHackathon3\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.dll
 C:\Users\Administrator\Source\Repos\VzMegaHackathon3\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.pdb
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Test.dll
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Test.pdb
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\nunit.framework.dll
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.csprojResolveAssemblyReference.cache
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.dll
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\obj\Debug\Vz.MegaHack.Test.pdb
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Core.dll
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Engines.dll
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Entities.dll
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Data.dll
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Core.pdb
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Engines.pdb
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Entities.pdb
+C:\Users\admin\Source\Repos\VzMegaHackathon\Vz.MegaHack.Test\bin\Debug\Vz.MegaHack.Data.pdb

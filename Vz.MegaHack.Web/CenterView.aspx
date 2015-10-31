@@ -22,7 +22,7 @@
         $(document).ready(function () {
             $('body').layout({ applyDefaultStyles: true });
 
-            $('#divCenter').html('CSSCC');
+            
             //codepedia.info/2015/07/highcharts-asp-net-create-pie-chart-with-jquery-ajax-in-c-sharp-ms-sql-database/
             //www.tutorialized.com/tutorial/Charts-and-graphs-using-jquery-and-charting-library-the-HighCharts/67976
             //jsfiddle.net/gh/get/jquery/1.7.2/highslide-software/highcharts.com/tree/master/samples/highcharts/plotoptions/series-point-events-click/
@@ -78,6 +78,8 @@
                         var serie = new Array(Result[i].Name, Result[i].Value);
                         data.push(serie);
                     }
+
+                    $('#divCenter').html(Result.d.HeaderName);
                     //DreawChart(data);
                     var seriesName = new Array();
                     var seriesScore = new Array();

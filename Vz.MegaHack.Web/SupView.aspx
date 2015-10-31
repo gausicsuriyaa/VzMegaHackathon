@@ -49,6 +49,8 @@
                         var serie = new Array(Result[i].Name, Result[i].Value);
                         data.push(serie);
                     }
+
+                    $('#divSupName').html(Result.d.HeaderName);
                     //DreawChart(data);
                     var seriesName = new Array();
                     var seriesScore = new Array();
