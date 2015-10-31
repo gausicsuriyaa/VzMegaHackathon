@@ -4,11 +4,179 @@
 <html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">
 <head runat="server">
     <title></title>
-    <script src="Content/Scripts/Libs/jquery-1.10.2.min.js"></script>
-    
-    <script src="Content/Scripts/Libs/jquery.layout.js"></script>
     
 
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+         <div class="ui-layout-center leftpane">
+        <div id="upleft">
+            <div style="float: left">
+                <h2>Heat Map View</h2>
+            </div>
+            <div style="float: right">
+                <a style="cursor:pointer; color: darkblue; text-decoration-line: underline" onclick="goback()">Back</a>
+            </div>
+                <div id="divOutput"></div>
+                <table id="tableOutput2" class="table table-header-rotated" style="margin: 57px auto 0px auto;">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Behaviour Attribute</th>
+                        <th class="rotate"><div><span>Center Avg</span></div></th>
+                        <th class="rotate"><div><span><a onclick="Navigate2Agent(1)">Agent 1</a></span></div></th>
+                        <th class="rotate"><div><span>Agent 2</span></div></th>
+                        <th class="rotate"><div><span>Agent 3</span></div></th>
+                        <th class="rotate"><div><span>Agent 4</span></div></th>
+                        <th class="rotate"><div><span>Agent 5</span></div></th>
+                        <th class="rotate"><div><span>Agent 6</span></div></th>
+                        <th class="rotate"><div><span>Agent 7</span></div></th>
+                        <th class="rotate"><div><span>Agent 8</span></div></th>
+                        <th class="rotate"><div><span>Agent 9</span></div></th>
+                        <th class="rotate"><div><span>Agent 10</span></div></th>
+                    </tr>
+                        </thead>
+                    <tbody>
+                        <tr class="attr" data-sd="171">
+                            <th class="row-header" rowspan="5">Call Attributes</th>
+                            <th class="row-header">Total Calls</th>
+                            <td class="avg">645</td>
+                            <td class="val">775</td>
+                            <td class="val">456</td>
+                            <td class="val">436</td>
+                            <td class="val">345</td>
+                            <td class="val">688</td>
+                            <td class="val">644</td>
+                            <td class="val">700</td>
+                            <td class="val">533</td>
+                            <td class="val">634</td>
+                            <td class="val">235</td>
+                        </tr>
+                         <tr class="attr" data-sd="7.41">
+                            <th class="row-header">Hold Duration > 3 mins</th>
+                            <td class="avg">16.7</td>
+                            <td class="val">11.2</td>
+                            <td class="val">18.4</td>
+                            <td class="val">15</td>
+                            <td class="val">16</td>
+                            <td class="val">14</td>
+                            <td class="val">16.4</td>
+                            <td class="val">11</td>
+                            <td class="val">16</td>
+                            <td class="val">17</td>
+                            <td class="val">18</td>
+                        </tr>
+                         <tr class="attr" data-sd="0.20">
+                            <th class="row-header">ACS Rating < 5</th>
+                            <td class="avg">0.3</td>
+                            <td class="val">0.1</td>
+                            <td class="val">0.2</td>
+                            <td class="val">0.6</td>
+                            <td class="val">0.0</td>
+                            <td class="val">0.3</td>
+                            <td class="val">0.2</td>
+                            <td class="val">0.1</td>
+                            <td class="val">0.7</td>
+                            <td class="val">0.4</td>
+                            <td class="val">0.3</td>
+                        </tr>
+                         <tr class="attr" data-sd="7.3">
+                            <th class="row-header">Silent Time > 3 mins</th>
+                            <td class="avg">20.0</td>
+                            <td class="val">10.4</td>
+                            <td class="val">11.2</td>
+                            <td class="val">12.2</td>
+                            <td class="val">14.5</td>
+                            <td class="val">16.4</td>
+                            <td class="val">18.9</td>
+                            <td class="val">19.5</td>
+                            <td class="val">22.3</td>
+                            <td class="val">9.5</td>
+                            <td class="val">17.4</td>
+                        </tr>
+                         <tr class="attr" data-sd="9.63">
+                            <th class="row-header">Cross talk time > 0 mins</th>
+                            <td class="avg">23.1</td>
+                            <td class="val">33.1</td>
+                            <td class="val">24.9</td>
+                            <td class="val">4.5</td>
+                            <td class="val">34.7</td>
+                            <td class="val">23.4</td>
+                            <td class="val">26.7</td>
+                            <td class="val">32.7</td>
+                            <td class="val">27.5</td>
+                            <td class="val">1.9</td>
+                            <td class="val">22.3</td>
+                        </tr>
+                         
+                        <tr class="attr" data-sd="0.92">
+                            <th rowspan="2" class="row-header">Speech Analytics</th>
+                            <th class="row-header">Escated to Supervisor</th>
+                            <td class="avg">0.4</td>
+                            <td class="val">0.3</td>
+                            <td class="val">1.4</td>
+                            <td class="val">0.4</td>
+                            <td class="val">0.3</td>
+                            <td class="val">0.1</td>
+                            <td class="val">1.9</td>
+                            <td class="val">0.5</td>
+                            <td class="val">0.4</td>
+                            <td class="val">0.3</td>
+                            <td class="val">0.6</td>
+                        </tr>
+                        <tr class="attr" data-sd="0.69">
+                            <th class="row-header">Negative Attitude</th>
+                            <td class="avg">1.0</td>
+                            <td class="val">0.5</td>
+                            <td class="val">2.9</td>
+                            <td class="val">0.4</td>
+                            <td class="val">0.9</td>
+                            <td class="val">1.7</td>
+                            <td class="val">0.3</td>
+                            <td class="val">0.9</td>
+                            <td class="val">1.0</td>
+                            <td class="val">0.3</td>
+                            <td class="val">0.7</td>
+                        </tr>
+                        <tr class="attr" data-sd="6.9">
+                            <th class="row-header">Metrics</th>
+                            <th class="row-header">FiOS TV Close Rate</th>
+                            <td class="avg">17</td>
+                            <td class="val">11.2</td>
+                            <td class="val">18.4</td>
+                            <td class="val">1.5</td>
+                            <td class="val">18.5</td>
+                            <td class="val">11.8</td>
+                            <td class="val">0.5</td>
+                            <td class="val">22.4</td>
+                            <td class="val">5.8</td>
+                            <td class="val">19.4</td>
+                            <td class="val">7.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+        </div>
+
+        
+    </div>
+    <div class="ui-layout-north topheader">Call Center Gamfication
+
+        <div style="float:right; color: yellow" id="divSupName"></div>
+        <div style="float:right">Supervisor Name: &nbsp;&nbsp; </div>
+    </div>
+    
+    
+
+    </form>
+</body>
+</html>
+
+
+<script src="Content/Scripts/Libs/jquery-1.10.2.min.js"></script>
+    
+    <script src="Content/Scripts/Libs/jquery.layout.js"></script>
     
     <style type="text/css">
         .active {
@@ -273,8 +441,7 @@
 <script src="Content/Scripts/Libs/jquery-ui.js"></script>
     <script src="Content/Scripts/Libs/jquery-ui-slider-pips.js"></script>
     <script type="text/javascript">
-        function Navigate2Agent(agentid)
-        {
+        function Navigate2Agent(agentid) {
             window.location.href = "AgentView.aspx?cid=" + getParameterByName('cid') + "&aid=" + agentid + "&sid=" + getParameterByName('sid');
         }
 
@@ -407,28 +574,73 @@
                     //alert(Result.d.UserName);
                     //alert(Result.d.UserValue);
                     //Result = Result.d;
-                    var data = [];
-                    for (var i in Result) {
-                        var serie = new Array(Result[i].Name, Result[i].Value);
-                        data.push(serie);
+                    var tblVal = "";
+                    //Table Tag
+                    //$('#divOutput').append("<table id='tableOutput' class='table table-header-rotated' style='margin: 57px auto 0px auto;'><thead><tr><th></th><th>Behaviour Attribute</th>");
+                    tblVal = "<table id='tableOutput' class='table table-header-rotated' style='margin: 57px auto 0px auto;'><thead><tr><th></th><th>Behaviour Attribute</th>";
+                    //Table Header
+                    for (var i in Result.d.HeatMapView[0]) {
+                        if ((i == ".Standard Deviation") || (i == ".Behavior Attribute") || (i == "..Category")) {
+                            continue;
+                        }
+                        //$('#divOutput').append("<th class='rotate'><div><span>" + i + "</span></div></th>");
+                        tblVal += "<th class='rotate'><div><span>" + i + "</span></div></th>";
                     }
-                    //DreawChart(data);
-                    var seriesName = new Array();
-                    var seriesScore = new Array();
-                    var seriesTopKPI = new Array();
-                    var seriesBottomKPI = new Array();
-                    var seriesAgentID = new Array();
 
-                    seriesName = Result.d.UserName;//.split(',');
-                    seriesTopKPI = Result.d.TopKPIs;
-                    seriesBottomKPI = Result.d.BottomKPIs;
-                    seriesAgentID = Result.d.AgentID;
-                    //for (var i = 0; i < seriesOne.length; i++) {
-                    //    seriesOne[i] = parseInt(seriesOne[i]);
-                    //}
+                    //$('#divOutput').append("</tr></thead><tbody>");
+                    tblVal += "</tr></thead><tbody>";
+                    //Table Body
+                    //var hmlength = Object.keys(Result.d.HeatMapView[0]).length;
+                    var hmlength = Result.d.HeatMapView.length;
+                    var callAttr = "";
+                    for (var ctr = 0; ctr < hmlength; ctr++) {
+                        //$('#divOutput').append("<tr class='attr' data-sd='" + Result.d.HeatMapView[ctr]['.Standard Deviation'] + "'>");
+                        tblVal += "<tr class='attr' data-sd='" + Result.d.HeatMapView[ctr]['.Standard Deviation'] + "'>";
+                        if (callAttr != Result.d.HeatMapView[ctr]['..Category']) {
+                            if (Result.d.HeatMapView[ctr]['..Category'] == "Call Attributes") {
+                                //$('#divOutput').append("<th class='row-header' rowspan='7'>Call Attributes</th>");
+                                tblVal += "<th class='row-header' rowspan='7'>Call Attributes</th>";
+                            }
+                            else if (Result.d.HeatMapView[ctr]['..Category'] == "Speech Analytics") {
+                                //$('#divOutput').append("<th class='row-header' rowspan='2'>Speech Analytics</th>");
+                                tblVal += "<th class='row-header' rowspan='3'>Speech Analytics</th>";
+                            }
+                            else if (Result.d.HeatMapView[ctr]['..Category'] == "Metrics") {
+                                //$('#divOutput').append("<th class='row-header' rowspan='9'>Metrics</th>");
+                                tblVal += "<th class='row-header' rowspan='8'>Metrics</th>";
+                            }
+                        }
 
-                    seriesScore = Result.d.UserScore;//.split(',');
-                    DreawChart(seriesName, seriesScore, seriesTopKPI, seriesBottomKPI, seriesAgentID, centerid, supid);
+                        for (var i in Result.d.HeatMapView[ctr]) {
+                            //Ignore columns
+                            if ((i == ".Standard Deviation") || (i == "..Category")) {
+                                continue;
+                            }
+                            else if (i == ".Behavior Attribute") {
+                                //$('#divOutput').append("<th class='row-header'>" + Result.d.HeatMapView[ctr][i] + "</th>");
+                                tblVal += "<th class='row-header'>" + Result.d.HeatMapView[ctr][i] + "</th>";
+                            }
+                            else if (i == ".Center Average") {
+                                //$('#divOutput').append("<td class='avg'>" + Result.d.HeatMapView[ctr][i] + "</td>");
+                                tblVal += "<td class='avg'>" + Result.d.HeatMapView[ctr][i] + "</td>";
+                            }
+                            else {
+                                //$('#divOutput').append("<td class='val'>" + Result.d.HeatMapView[ctr][i] + "</td>");
+                                tblVal += "<td class='val'>" + Result.d.HeatMapView[ctr][i] + "</td>";
+                            }
+
+                        }
+
+                        callAttr = Result.d.HeatMapView[ctr]['..Category'];
+
+                        //$('#divOutput').append("</tr>");
+                        tblVal += "</tr>";
+                    }
+
+                    //$('#divOutput').append("</tbody></table>");
+                    tblVal += "</tbody></table>";
+                    $('#divOutput').append(tblVal);
+                    //var str = $('#divOutput').html();
                 },
                 error: function (Result) {
                     alert("Error");
@@ -439,190 +651,4 @@
 
         });
 
-
     </script>
-
-    
-</head>
-<body>
-    <form id="form1" runat="server">
-         <div class="ui-layout-center leftpane">
-        <div id="upleft">
-            <div style="float: left">
-                <h2>Heat Map View</h2>
-            </div>
-            <div style="float: right">
-                <a style="cursor:pointer; color: darkblue; text-decoration-line: underline" onclick="goback()">Back</a>
-            </div>
-                
-                <table id="tableOutput" class="table table-header-rotated" style="margin: 57px auto 0px auto;">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Behaviour Attribute</th>
-                        <th class="rotate"><div><span>Center Avg</span></div></th>
-                        <th class="rotate"><div><span><a onclick="Navigate2Agent(1)">Agent 1</a></span></div></th>
-                        <th class="rotate"><div><span>Agent 2</span></div></th>
-                        <th class="rotate"><div><span>Agent 3</span></div></th>
-                        <th class="rotate"><div><span>Agent 4</span></div></th>
-                        <th class="rotate"><div><span>Agent 5</span></div></th>
-                        <th class="rotate"><div><span>Agent 6</span></div></th>
-                        <th class="rotate"><div><span>Agent 7</span></div></th>
-                        <th class="rotate"><div><span>Agent 8</span></div></th>
-                        <th class="rotate"><div><span>Agent 9</span></div></th>
-                        <th class="rotate"><div><span>Agent 10</span></div></th>
-                        <th class="rotate"><div><span>Agent 11</span></div></th>
-                        <th class="rotate"><div><span>Agent 12</span></div></th>
-                    </tr>
-                        </thead>
-                    <tbody>
-                        <tr class="attr" data-sd="171">
-                            <th class="row-header" rowspan="5">Call Attributes</th>
-                            <th class="row-header">Total Calls</th>
-                            <td class="avg">645</td>
-                            <td class="val">775</td>
-                            <td class="val">456</td>
-                            <td class="val">436</td>
-                            <td class="val">345</td>
-                            <td class="val">688</td>
-                            <td class="val">644</td>
-                            <td class="val">700</td>
-                            <td class="val">533</td>
-                            <td class="val">634</td>
-                            <td class="val">235</td>
-                            <td class="val">464</td>
-                            <td class="val">345</td>
-                        </tr>
-                         <tr class="attr" data-sd="7.41">
-                            <th class="row-header">Hold Duration > 3 mins</th>
-                            <td class="avg">16.7</td>
-                            <td class="val">11.2</td>
-                            <td class="val">18.4</td>
-                            <td class="val">15</td>
-                            <td class="val">16</td>
-                            <td class="val">14</td>
-                            <td class="val">16.4</td>
-                            <td class="val">11</td>
-                            <td class="val">16</td>
-                            <td class="val">17</td>
-                            <td class="val">18</td>
-                            <td class="val">19</td>
-                            <td class="val">14</td>
-                        </tr>
-                         <tr class="attr" data-sd="0.20">
-                            <th class="row-header">ACS Rating < 5</th>
-                            <td class="avg">0.3</td>
-                            <td class="val">0.1</td>
-                            <td class="val">0.2</td>
-                            <td class="val">0.6</td>
-                            <td class="val">0.0</td>
-                            <td class="val">0.3</td>
-                            <td class="val">0.2</td>
-                            <td class="val">0.1</td>
-                            <td class="val">0.7</td>
-                            <td class="val">0.4</td>
-                            <td class="val">0.3</td>
-                            <td class="val">0.2</td>
-                            <td class="val">0.0</td>
-                        </tr>
-                         <tr class="attr" data-sd="7.3">
-                            <th class="row-header">Silent Time > 3 mins</th>
-                            <td class="avg">20.0</td>
-                            <td class="val">10.4</td>
-                            <td class="val">11.2</td>
-                            <td class="val">12.2</td>
-                            <td class="val">14.5</td>
-                            <td class="val">16.4</td>
-                            <td class="val">18.9</td>
-                            <td class="val">19.5</td>
-                            <td class="val">22.3</td>
-                            <td class="val">9.5</td>
-                            <td class="val">17.4</td>
-                            <td class="val">21.4</td>
-                            <td class="val">20.0</td>
-                        </tr>
-                         <tr class="attr" data-sd="9.63">
-                            <th class="row-header">Cross talk time > 0 mins</th>
-                            <td class="avg">23.1</td>
-                            <td class="val">33.1</td>
-                            <td class="val">24.9</td>
-                            <td class="val">4.5</td>
-                            <td class="val">34.7</td>
-                            <td class="val">23.4</td>
-                            <td class="val">26.7</td>
-                            <td class="val">32.7</td>
-                            <td class="val">27.5</td>
-                            <td class="val">1.9</td>
-                            <td class="val">22.3</td>
-                            <td class="val">15.6</td>
-                            <td class="val">4.5</td>
-                        </tr>
-                         
-                        <tr class="attr" data-sd="0.92">
-                            <th rowspan="2" class="row-header">Speech Analytics</th>
-                            <th class="row-header">Escated to Supervisor</th>
-                            <td class="avg">0.4</td>
-                            <td class="val">0.3</td>
-                            <td class="val">1.4</td>
-                            <td class="val">0.4</td>
-                            <td class="val">0.3</td>
-                            <td class="val">0.1</td>
-                            <td class="val">1.9</td>
-                            <td class="val">0.5</td>
-                            <td class="val">0.4</td>
-                            <td class="val">0.3</td>
-                            <td class="val">0.6</td>
-                            <td class="val">0.1</td>
-                            <td class="val">0.8</td>
-                        </tr>
-                        <tr class="attr" data-sd="0.69">
-                            <th class="row-header">Negative Attitude</th>
-                            <td class="avg">1.0</td>
-                            <td class="val">0.5</td>
-                            <td class="val">2.9</td>
-                            <td class="val">0.4</td>
-                            <td class="val">0.9</td>
-                            <td class="val">1.7</td>
-                            <td class="val">0.3</td>
-                            <td class="val">0.9</td>
-                            <td class="val">1.0</td>
-                            <td class="val">0.3</td>
-                            <td class="val">0.7</td>
-                            <td class="val">0.4</td>
-                            <td class="val">1.0</td>
-                        </tr>
-                        <tr class="attr" data-sd="6.9">
-                            <th class="row-header">Metrics</th>
-                            <th class="row-header">FiOS TV Close Rate</th>
-                            <td class="avg">17</td>
-                            <td class="val">11.2</td>
-                            <td class="val">18.4</td>
-                            <td class="val">1.5</td>
-                            <td class="val">18.5</td>
-                            <td class="val">11.8</td>
-                            <td class="val">0.5</td>
-                            <td class="val">22.4</td>
-                            <td class="val">5.8</td>
-                            <td class="val">19.4</td>
-                            <td class="val">7.5</td>
-                            <td class="val">9.3</td>
-                            <td class="val">17.4</td>
-                        </tr>
-                    </tbody>
-                </table>
-            
-        </div>
-
-        
-    </div>
-    <div class="ui-layout-north topheader">Call Center Gamfication
-
-        <div style="float:right; color: yellow" id="divSupName"></div>
-        <div style="float:right">Supervisor Name: &nbsp;&nbsp; </div>
-    </div>
-    
-    
-
-    </form>
-</body>
-</html>

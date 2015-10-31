@@ -65,10 +65,11 @@ namespace Vz.MegaHack.Web.Services
         }
 
         [WebMethod]
-        public void GetHeatMapDetails(string strSupID)
+        public HeatMapViewResponse GetHeatMapDetails(string strSupID)
         {
-            HeatMapViewResponse objHeatMapViewResponse = EvaluationEngine.GetHeatMapView(strSupID);
-            List<Dictionary<string, string>> objlistdict = new List<Dictionary<string, string>>();
+            return EvaluationEngine.GetHeatMapView(strSupID); ;
+            //HeatMapViewResponse objHeatMapViewResponse = EvaluationEngine.GetHeatMapView(strSupID);
+            //List<Dictionary<string, string>> objlistdict = new List<Dictionary<string, string>>();
             //objlistdict = EvaluationEngine.GetHeatMapView(strSupID);
         }
     
