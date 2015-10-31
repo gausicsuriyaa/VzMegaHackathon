@@ -19,7 +19,7 @@
                 <a style="cursor:pointer; color: darkblue; text-decoration-line: underline" onclick="goback()">Back</a>
             </div>
                 <div id="divOutput"></div>
-                <table id="tableOutput2" class="table table-header-rotated" style="margin: 57px auto 0px auto;">
+                <table id="tableOutput" class="table table-header-rotated" style="margin: 57px auto 0px auto;">
                     <thead>
                     <tr>
                         <th></th>
@@ -577,7 +577,7 @@
                     var tblVal = "";
                     //Table Tag
                     //$('#divOutput').append("<table id='tableOutput' class='table table-header-rotated' style='margin: 57px auto 0px auto;'><thead><tr><th></th><th>Behaviour Attribute</th>");
-                    tblVal = "<table id='tableOutput' class='table table-header-rotated' style='margin: 57px auto 0px auto;'><thead><tr><th></th><th>Behaviour Attribute</th>";
+                    tblVal = "<table id='tableOutput2' class='table table-header-rotated' style='margin: 57px auto 0px auto;'><thead><tr><th></th><th>Behaviour Attribute</th>";
                     //Table Header
                     for (var i in Result.d.HeatMapView[0]) {
                         if ((i == ".Standard Deviation") || (i == ".Behavior Attribute") || (i == "..Category")) {
