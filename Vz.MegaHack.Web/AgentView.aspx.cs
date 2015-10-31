@@ -34,7 +34,7 @@ namespace Vz.MegaHack.Web
                     List<string> tempCenterAvg = new List<string>();
                     List<string> tempTraining = new List<string>();
                     List<string> tempAward = new List<string>();
-                    foreach (KPIScoreInfo kpiScore in agentKPI.ScoreDetails)
+                    foreach (KPIScoreInfo kpiScore in agentKPI.ScoreDetails.OrderBy(x => x.Date))
                     {
                         string tempkpival = String.Format("{{ x: Date.UTC({0}, {1}, {2}), y: {3}, name: '{3}' }}", kpiScore.Date.Year, kpiScore.Date.Month - 1, kpiScore.Date.Day, kpiScore.Score);
                         string tempAvg = String.Format("{{ x: Date.UTC({0}, {1}, {2}), y: {3}, name: '{3}' }}", kpiScore.Date.Year, kpiScore.Date.Month - 1, kpiScore.Date.Day, kpiScore.CenterAverage);
