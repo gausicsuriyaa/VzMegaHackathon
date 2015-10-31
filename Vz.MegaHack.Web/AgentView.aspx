@@ -150,7 +150,7 @@
                         to: Date.UTC(2015, 11, 31),
                         color: '#FFEEFF',
                         label: {
-                            text: '<em>Quarter4</em>',
+                            text: '<em>Q4</em>',
                             style: {
                                 color: '#999999'
                             },
